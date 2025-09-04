@@ -3,14 +3,11 @@ class Solution {
         if(n<=0){
             return false;
         }
-        while(n%4==0){
-            n /= 4;
-        }
-        if(n==1){
+        if(n%3==1 && (n&(n-1))==0){
             return true;
         }else{
             return false;
         }
-        
+
     }
 }
