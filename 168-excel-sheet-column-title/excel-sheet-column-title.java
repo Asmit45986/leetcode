@@ -4,13 +4,10 @@ class Solution {
         while (columnNumber > 0) {
             columnNumber--;
             int a = columnNumber % 26;
-            int b = 'A' + a;
-            char ch = (char) b;
+            char ch = (char) (a+'A');
             result = ch + result;
             columnNumber /= 26;
         }
-        return result;
-       
-        
+        return result;   
     }
 }
