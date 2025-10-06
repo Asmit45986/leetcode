@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Map;
 class Solution {
     public boolean containsDuplicate(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
