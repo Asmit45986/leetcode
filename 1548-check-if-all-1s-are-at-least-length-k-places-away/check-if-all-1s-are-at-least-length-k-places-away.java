@@ -14,12 +14,9 @@ class Solution {
             }
         }
         index1 = index;
-        System.out.println(index);
-        System.out.println(count);
         for(int i = index+1 ;i<nums.length;i++){
             if(nums[i]==1) {
                 index2 = i;
-                System.out.println(index2 +" "+index1);
                 int res = index2 - index1-1;
                 System.out.println(res);
                 if (res >= k) {
