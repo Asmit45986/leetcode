@@ -5,7 +5,7 @@ class Solution {
         int num = 0;
         for(int i = 0 ; i<n;i++){
             num = (num*2+arr[i])%5;
-            if(num%5==0){
+            if(num==0){
                 ll.add(true);
             }else{
                 ll.add(false);
