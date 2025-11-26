@@ -1,28 +1,26 @@
 class Solution {
     public List<List<Integer>> permute(int[] arr) {
-        int n  = arr.length;
-        List<List<Integer>> ans = new ArrayList<>();
-        permu(0,n-1,arr,ans);
-        return ans;
-        
+        List<List<Integer>>ll = new ArrayList();
+        permu(arr,0,ll);
+        return ll;
+
     }
-    public static void permu(int l,int r,int arr[],List<List<Integer>> ans){
-        if (l == r) {
-            List<Integer> list = new ArrayList<>();
-            for (int x : arr) list.add(x);
-            ans.add(list);
+    public static void permu(int arr[],int i,List<List<Integer>>ll){
+        
+        if(i==arr.length){
+            List<Integer> temp = new ArrayList<>();
+            for (int x : arr) temp.add(x);
+            ll.add(temp);
             return;
+        }    
+            for(int j = i;j<arr.length;j++){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            permu(arr,i+1,ll);
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;   
         }
-
-        for(int i = l;i<=r;i++){
-            int temp = arr[l];
-            arr[l] = arr[i];
-            arr[i] = temp;permu(l+1,r,arr,ans);
-            int t = arr[l];
-            arr[l] = arr[i];
-            arr[i] = t;
-
-        }
-
     }
 }
