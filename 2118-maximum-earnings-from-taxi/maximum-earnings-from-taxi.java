@@ -1,9 +1,7 @@
 class Solution {
-    int r;
     public long maxTaxiEarnings(int n, int[][] arr) {
         Arrays.sort(arr,Comparator.comparing(a->a[0]));
-        r = arr.length;
-        long dp[] = new long[r+1];
+        long dp[] = new long[arr.length+1];
         Arrays.fill(dp,-1);
         return solve(0,n,arr,dp);
         
@@ -12,7 +10,6 @@ class Solution {
         
         if(i>=arr.length) return 0;
         if(dp[i] !=-1) return dp[i];
-        if(arr[i][1] > n) return 0;
         int next = step(i+1,arr[i][1],arr);
         long pick = 0;
         if(arr[i][1]<=n){
@@ -24,7 +21,7 @@ class Solution {
     }
     int step(int l , int end,int arr[][]){
         int r = arr.length-1;
-        int res = arr.length+1;
+        int res = arr.length;
         while(l<=r){
             int mid = l +(r-l)/2;
             if(arr[mid][0]>=end){
